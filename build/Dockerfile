@@ -95,6 +95,7 @@ RUN conda install -y -c menpo opencv3=3.1.0 \
  && conda clean -ya
 
 COPY ./requirements.txt ./
+RUN pip install Cython
 RUN pip install --no-cache-dir -r requirements.txt
 
 WORKDIR src/lib/models/networks/DCNv2
