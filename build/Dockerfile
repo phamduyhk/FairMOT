@@ -98,7 +98,7 @@ COPY ./requirements.txt ./
 RUN pip install Cython
 RUN pip install --no-cache-dir -r requirements.txt
 
-WORKDIR src/lib/models/networks/DCNv2
+WORKDIR /app/src/lib/models/networks/DCNv2
 RUN sh make.sh
 
 # Set the default command to python3
