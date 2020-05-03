@@ -1,0 +1,15 @@
+version: '2.4'
+services:
+    fairmot:
+        build:
+            context: ./build
+            dockerfile: Dockerfile
+            args:
+                - IMAGE_NAME=nvidia/cuda
+        volumes:
+            - ./:/usr/src/
+        ## runtimeを指定する！！
+        runtime: nvidia
+        environment:
+            - NVIDIA_VISIBLE_DEVICES=all
+        command: nvidia-smi
