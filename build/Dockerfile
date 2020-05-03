@@ -94,8 +94,11 @@ RUN sudo apt-get update && sudo apt-get install -y --no-install-recommends \
 RUN conda install -y -c menpo opencv3=3.1.0 \
  && conda clean -ya
 
-COPY ../requirements.txt ./
+COPY ./requirements.txt ./
 RUN pip3 install --no-cache-dir -r requirements.txt
+
+WORKDIR src/lib/models/networks/DCNv2
+RUN sh make.sh
 
 # Set the default command to python3
 CMD ["/bin/bash"]
